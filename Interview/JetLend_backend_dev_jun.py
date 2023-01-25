@@ -15,14 +15,12 @@
 # Обязательное условие: функция не должна иметь сложность O(n^2).
 
 from typing import List
+from collections import OrderedDict
 
 
 def remove_duplicate(array: List[dict]) -> List:
-    unique_array = []
-    for elem in array:
-        if elem not in unique_array:
-            unique_array.append(elem)
-    print(unique_array)
+    unique_set = {tuple(elem.items()) for elem in array}
+    print([dict(elem) for elem in unique_set])
 
 
 array = [
@@ -35,4 +33,4 @@ array = [
     {"key2": "value2"}
 ]
 
-remove_duplicate(array)
+print(remove_duplicate(array))
